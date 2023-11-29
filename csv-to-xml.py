@@ -35,7 +35,7 @@ def csv_to_xml(csv_file_path, xml_file_path):
 	post_title.text = f"{base_name} quiz"
 	ET.SubElement(post, "post_content")
 
-	# Add the quiz definition elements before the questions
+	# Add quiz definition elements
 	comment = ET.Comment(" =============== Custom Values =============== ")
 	quiz.append(comment)
 
@@ -93,10 +93,11 @@ def csv_to_xml(csv_file_path, xml_file_path):
 				question_elem = ET.SubElement(questions, "question")
 				question_elem.set("answerType", "single" if question_type == "Single" else "multiple")
 
-				# Add question details
+				# Question ID
 				title_elem = ET.SubElement(question_elem, "title")
 				title_elem.text = question_id
 
+				# Question points
 				points_elem = ET.SubElement(question_elem, "points")
 				points_elem.text = "1"
 
@@ -104,14 +105,14 @@ def csv_to_xml(csv_file_path, xml_file_path):
 				question_text_elem = ET.SubElement(question_elem, "questionText")
 				question_text_elem.text = question_body
 
-				# Add other elements like points, correctMsg, etc.
+				# Misc. elements
 				for tag in ["correctMsg", "incorrectMsg", "category"]:
 					ET.SubElement(question_elem, tag)
 
 				tipMsg_elem = ET.SubElement(question_elem, "tipMsg")
 				tipMsg_elem.set("enabled", "false")
 
-				# Add additional settings elements
+				# More misc. elements
 				for tag in ["correctSameText", "showPointsInBox", "answerPointsActivated", 
 				"answerPointsDiffModusActivated", "disableCorrect"]:
 					elem = ET.SubElement(question_elem, tag)
@@ -124,20 +125,12 @@ def csv_to_xml(csv_file_path, xml_file_path):
 			for i in range(0, len(answers), 2):
 				correct, answer_body = answers[i], answers[i+1]
 				answer_elem = ET.SubElement(answers_elem, "answer")
-				answer_elem.set("correct", correct)
-				answer_elem.set("points", "0")
+				answer_elem.set("correct", correct)	# Mark asnwer as correct if it is marked as such in CSV
+				answer_elem.set("points", "0") # 'answerPointsActivated' quiz setting is false, so this is always 0
 
 				answer_text_elem = ET.SubElement(answer_elem, "answerText")
-				answer_text_elem.set("html", "false")
-				answer_text_elem.text = answer_body
-
-				# Adding empty shortText element
-				short_text_elem = ET.SubElement(answer_elem, "stortText")
-				short_text_elem.set("html", "false")
-
-	# Write to XML file
-	# tree = ET.ElementTree(root)
-	# tree.write(xml_file_path, encoding="utf-8", xml_declaration=True)
+				answer_text_elem.set("html", "false") # HTML formatting is not used
+				answer_text_elem.text = answer_body 
 	
 	# Convert the ElementTree to a string
 	xml_string = ET.tostring(root, encoding='utf-8')

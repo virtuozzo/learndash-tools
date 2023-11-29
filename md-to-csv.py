@@ -10,19 +10,20 @@ def parse_markdown_quiz(file_path):
     parsed_data = []
 
     for idx, question in enumerate(questions):
-        question_id = f"{sanitized_filename}-{idx+1:03}"
-        parts = question.strip().split('\n- [')
+        question_id = f"{sanitized_filename}-{idx+1:03}" # Use sanitized input filename as a question ID
+        parts = question.strip().split('\n- [') # Strip away markdown list element and a part of chechbox element
         question_body = parts[0].strip().replace('\n', ' ')  # Remove newlines from question body
-        answers = parts[1:]
-        question_type = 'Multiple' if '(Choose' in question_body else 'Single'
-
-        row = [question_id, question_body, question_type]
+        answers = parts[1:] 
+        question_type = 'Multiple' if '(Choose' in question_body else 'Single' # Question body must contain the line "(Choose N)" to be recognized as a multiple-choice question
+        
+        row = [question_id, question_body, question_type] # Create a new row for the question
+        
         for answer in answers:
-            correct = 'true' if 'x]' in answer else 'false'
-            answer_body = answer.replace('x]', '').replace(' ]', '').strip()
-            row.extend([correct, answer_body])  # No manual quoting
+            correct = 'true' if 'x]' in answer else 'false' # Marking correct answers using the rest of the checkbox element
+            answer_body = answer.replace('x]', '').replace(' ]', '').strip() # Remove the rest of the checkbox element, what's left is the body of an answer
+            row.extend([correct, answer_body])  # Append answer to the CSV string
 
-        parsed_data.append(row)
+        parsed_data.append(row) # Parsed question+answers
 
     return parsed_data
 
@@ -51,8 +52,8 @@ if __name__ == "__main__":
         sys.exit(1)
 
     input_file = sys.argv[1]
-    base_name = os.path.splitext(os.path.basename(input_file))[0]
-    sanitized_filename = base_name.lower().replace(" ", "-")
+    base_name = os.path.splitext(os.path.basename(input_file))[0] 
+    sanitized_filename = base_name.lower().replace(" ", "-") 
     output_file = f"{base_name}.csv"
 
     quiz_data = parse_markdown_quiz(input_file)
