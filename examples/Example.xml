@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wpProQuiz>
+    <header LEARNDASH_SETTINGS_DB_VERSION="2.5" exportVersion="1" ld_version="4.10.0" version="0.28"/>
+    <data>
+        <quiz>
+            <title titleHidden="true">Example Quiz</title>
+            <text>Example quiz</text>
+            <post>
+                <post_title>Example quiz</post_title>
+                <post_content/>
+            </post>
+            <!-- =============== Custom Values =============== -->
+            <resultText gradeEnabled="true">
+                <text prozent="0"/>
+            </resultText>
+            <emailNotification>0</emailNotification>
+            <forms activated="false" position="0"/>
+            <quizModus questionsPerPage="0">0</quizModus>
+            <quizRunOnce cookie="false" time="0" type="0">false</quizRunOnce>
+            <showMaxQuestion showMaxQuestionPercent="false" showMaxQuestionValue="0">false</showMaxQuestion>
+            <statistic activated="true" ipLock="0"/>
+            <timeLimit>0</timeLimit>
+            <toplist activated="false"/>
+            <!-- =============== True =============== -->
+            <answerRandom>true</answerRandom>
+            <hideQuestionNumbering>true</hideQuestionNumbering>
+            <hideQuestionPositionOverview>true</hideQuestionPositionOverview>
+            <quizSummaryHide>true</quizSummaryHide>
+            <showReviewQuestion>true</showReviewQuestion>
+            <skipQuestionDisabled>true</skipQuestionDisabled>
+            <!-- =============== False =============== -->
+            <autostart>false</autostart>
+            <btnRestartQuizHidden>false</btnRestartQuizHidden>
+            <btnViewQuestionHidden>false</btnViewQuestionHidden>
+            <disabledAnswerMark>false</disabledAnswerMark>
+            <forcingQuestionSolve>false</forcingQuestionSolve>
+            <hideAnswerMessageBox>false</hideAnswerMessageBox>
+            <hideResultCorrectQuestion>false</hideResultCorrectQuestion>
+            <hideResultPoints>false</hideResultPoints>
+            <hideResultQuizTime>false</hideResultQuizTime>
+            <numberedAnswer>false</numberedAnswer>
+            <prerequisite>false</prerequisite>
+            <questionRandom>false</questionRandom>
+            <showAverageResult>false</showAverageResult>
+            <showCategory>false</showCategory>
+            <showCategoryScore>false</showCategoryScore>
+            <showPoints>false</showPoints>
+            <sortCategories>false</sortCategories>
+            <startOnlyRegisteredUser>false</startOnlyRegisteredUser>
+            <userEmailNotification>false</userEmailNotification>
+            <!-- =============== Questions =============== -->
+            <questions>
+                <question answerType="single">
+                    <title>example-001</title>
+                    <points>1</points>
+                    <questionText>Single-answer Question Title?</questionText>
+                    <correctMsg/>
+                    <incorrectMsg/>
+                    <category/>
+                    <tipMsg enabled="false"/>
+                    <correctSameText>false</correctSameText>
+                    <showPointsInBox>false</showPointsInBox>
+                    <answerPointsActivated>false</answerPointsActivated>
+                    <answerPointsDiffModusActivated>false</answerPointsDiffModusActivated>
+                    <disableCorrect>false</disableCorrect>
+                    <answers>
+                        <answer correct="false" points="0">
+                            <answerText html="false">Incorrect Answer</answerText>
+                            <stortText html="false"/>
+                        </answer>
+                        <answer correct="true" points="0">
+                            <answerText html="false">Correct Answer</answerText>
+                            <stortText html="false"/>
+                        </answer>
+                        <answer correct="false" points="0">
+                            <answerText html="false">Incorrect Answer</answerText>
+                            <stortText html="false"/>
+                        </answer>
+                    </answers>
+                </question>
+                <question answerType="multiple">
+                    <title>example-002</title>
+                    <points>1</points>
+                    <questionText>Multiple-answer Question Title? (Choose TWO)</questionText>
+                    <correctMsg/>
+                    <incorrectMsg/>
+                    <category/>
+                    <tipMsg enabled="false"/>
+                    <correctSameText>false</correctSameText>
+                    <showPointsInBox>false</showPointsInBox>
+                    <answerPointsActivated>false</answerPointsActivated>
+                    <answerPointsDiffModusActivated>false</answerPointsDiffModusActivated>
+                    <disableCorrect>false</disableCorrect>
+                    <answers>
+                        <answer correct="true" points="0">
+                            <answerText html="false">Correct Answer 1</answerText>
+                            <stortText html="false"/>
+                        </answer>
+                        <answer correct="false" points="0">
+                            <answerText html="false">Incorrect Answer</answerText>
+                            <stortText html="false"/>
+                        </answer>
+                        <answer correct="true" points="0">
+                            <answerText html="false">Correct Answer 2</answerText>
+                            <stortText html="false"/>
+                        </answer>
+                        <answer correct="false" points="0">
+                            <answerText html="false">Incorrect Answer</answerText>
+                            <stortText html="false"/>
+                        </answer>
+                    </answers>
+                </question>
+            </questions>
+        </quiz>
+    </data>
+</wpProQuiz>
